@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-BootSecurityApplication<bootsecurity>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "rc.bootsecurity.BootSecurityApplication",
+            "projectName": "bootsecurity",
+            "args": ""
+        }
+    ]
+}

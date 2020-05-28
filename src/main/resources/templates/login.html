@@ -1,0 +1,60 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments.html :: headerfiles">
+    <title>Log in</title>
+</head>
+<body>
+<div class="container">
+    <div style="width:600px;margin-left: auto;margin-right: auto;margin-top:24px;padding: 24px;">
+        <div class="card">
+            <div class="card-header">
+                <i class="fa fa-user"></i> Please Login
+            </div>
+            <div class="card-block" style="padding: 24px;">
+                <!-- <form name="f" th:action="@{/login}" method="post">the default url /login is
+                     recognised by spring security as it knows to map it with spring security login-->
+                <form name="f" th:action="@{/signin}" method="post">
+                    <fieldset>
+                        <!-- Thymeleaf + Spring Security error display -->
+                        <div th:if="${param.error}" class="alert alert-danger">
+                            Invalid username and password.
+                        </div>
+
+                        <div th:if="${param.logout}" class="alert alert-success">
+                            You have been logged out.
+                        </div>
+
+                        <!-- Login Controls -->
+                        <!-- to use default name i.e recognised by springsecurity we use username,password,remember-me
+                             in all input tags having name="txtUsername/txtUserPassword/checkremebeme"->these are custm 
+                             name provided to them
+                             but always use default name: username,password,remember-me(like this )
+                             -->
+                        <div class="form-group">
+                            <label for="txtUsername">Username</label>
+                            <input type="text" class="form-control" id="txtUsername" name="txtUsername"
+                                   placeholder="Username">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="txtPassword">Password</label>
+                            <input type="password" class="form-control" id="txtPassword" name="txtPassword"
+                                   placeholder="Password">
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="checkRememberMe" name="checkRememberMe">
+                            <label class="form-check-label" for="checkRememberMe">Remember me?</label>
+                        </div>
+
+                        <!-- Login Button -->
+                        <div class="form-actions" style="margin-top: 12px;">
+                            <button type="submit" class="btn btn-success">Log in</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
